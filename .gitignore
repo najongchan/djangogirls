@@ -1,0 +1,7 @@
+*.pyc
+*~
+__pycache__
+venv
+/djangogirls/db.sqlite3
+/djangogirls/static
+.DS_Store
