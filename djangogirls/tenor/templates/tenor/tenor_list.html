@@ -1,0 +1,44 @@
+{% extends 'tenor/base.html' %}
+
+{% block content %}
+
+
+    <h1><img src="https://tenor.com/assets/img/tenor-logo.svg" alt="Tenor" width="200" height="40"></h1>
+    <form method="get" class="get-form" action="/tenor/">
+        {{ form.non_field_errors }}
+        <div class="search-bar">
+            {{ form.search_term }}
+            <button type="submit" class="search-icon"><i class="fas fa-search"></i></button>
+        </div>
+    </form>
+
+    <div class="gif_list">
+    {% for result in results %}
+        <span id="{{ result.id }}" class="gif_image_wrap">
+            <img src="{{ result.media.0.tinygif.url }}" alt="이미지" class="gif_images"
+                 style="cursor: pointer;">
+        </span>
+    {% endfor %}
+    </div>
+
+ <script type="text/javascript">
+        $('.gif_images').click(function() {
+            var search_term = "{{ search_term }}";
+            var image_url = $(this).attr('src');
+            console.log("clicked");
+            console.log(image_url);
+            console.log(search_term);
+            $.ajax({
+                type: "POST",
+                url: "{% url 'gif_send' %}",
+                data: {
+                    'search_term': search_term,
+                    'image_url': image_url,
+                    'csrfmiddlewaretoken': '{{ csrf_token }}'
+                }
+            });
+
+        })
+    </script>
+
+{% endblock %}

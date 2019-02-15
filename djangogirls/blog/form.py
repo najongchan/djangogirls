@@ -1,6 +1,6 @@
 from django import forms
 
-from .models import Post, Comment
+from .models import Post, Comment, DoorayMessage
 
 
 class PostForm(forms.ModelForm):
@@ -16,3 +16,9 @@ class CommentForm(forms.ModelForm):
         model = Comment
         fields = ('author', 'text')
 
+
+class DoorayForm(forms.ModelForm):
+
+    class Meta:
+        model = DoorayMessage
+        fields = ('text', 'title', 'imageUrl')

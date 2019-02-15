@@ -39,3 +39,8 @@ class Comment(models.Model):
     def __str__(self):
         return self.text
 
+
+class DoorayMessage(models.Model):
+    text = models.TextField()
+    title = models.CharField(max_length=40)
+    imageUrl = models.TextField()

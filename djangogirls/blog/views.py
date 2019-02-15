@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
 from django.contrib.auth.decorators import login_required
+import requests, json
 
 from .models import Post, Comment
 from .form import PostForm, CommentForm
@@ -77,6 +78,22 @@ def add_comment_to_post(request, pk):
             comment = form.save(commit=False)
             comment.post = post
             comment.save()
+
+            dooraydata = {
+                "botName": "이종혁",
+                "botIconImage": "https://static-page.kakao.com/static/pc/logo.png?d72315dd34f8cdc405bfaeed349c352c",
+                "text": comment.author,
+                "attachments": [
+                    {
+                        "imageUrl": comment.text
+                    }
+                ]
+            }
+            url2 = "https://hook.dooray.com/services/1590498595903871702/2412863634358095097/12aY-3YvTsmiwnERVJpA1A"
+            headers = {'content-type': 'application/json'}
+            res = requests.post(url2, data=json.dumps(dooraydata), headers=headers)
+            print(res.content)
+
             return redirect('post_detail', pk=post.pk)
     else:
         form = CommentForm()
@@ -96,3 +113,9 @@ def comment_remove(request, pk):
     comment = get_object_or_404(Comment, pk=pk)
     comment.delete()
     return redirect('post_detail', pk=comment.post.pk)
+
+
+# @login_required
+# def tenor_list(request):
+#     print(request)
+#     return render(request, 'tenor_list.html')

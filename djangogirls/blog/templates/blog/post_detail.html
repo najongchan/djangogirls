@@ -29,7 +29,7 @@
                 {% endif %}
             </div>
             <strong>{{ comment.author }}</strong>
-            <p>{{ comment.text|linebreaks }}</p>
+            <div class="gif-image" style="width: 700px;"><img src="{{ comment.text }}" alt="{{ comment.text }}" style=""></div>
         </div>
     {% endif %}
 {% empty %}

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tenor Search</title>
+
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/tenor.css' %}">
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <div class="content container" style="width: 100%; background: #f2d7e3">
+        {% block content %}
+        {% endblock %}
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,46 @@
+h1 {
+    text-align: center;
+}
+
+.gif_list {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.gif_images {
+    border-radius: 20px;
+}
+
+.search-bar {
+    margin-top: auto;
+    margin-bottom: auto;
+    height: 60px;
+    background-color: #353b48;
+    border-radius: 30px;
+    padding: 10px;
+    line-height: 40px;
+    width: 100%;
+}
+
+.searchInput {
+    padding: 0 10px;
+    width: 90%;
+    border: 0;
+    outline: 0;
+    background: none;
+    color: white;
+    caret-color: transparent;
+    line-height: 40px;
+}
+
+.search-icon {
+    height: 40px;
+    width: 40px;
+    float: right;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 50%;
+    color: white;
+    padding: 10px;
+}
